@@ -1,0 +1,91 @@
+<ns-progress-spinner *ngIf="!rendered"></ns-progress-spinner>
+
+<ScrollView #scrollView>
+    <GridLayout height="2000" columns="*" rows="500, auto, 500, 500">
+        <StackLayout style="margin-top: 150px;" class="stack1" height="100%" width="100%" row="0" column="0">
+            <RadCartesianChart height="100%" width="100%" tkExampleTitle tkToggleNavButton>
+                <LinearAxis tkCartesianVerticalAxis horizontalLocation="Left"></LinearAxis>
+                <CategoricalAxis tkCartesianHorizontalAxis verticalLocation="Bottom"></CategoricalAxis>
+
+                <LineSeries tkCartesianSeries [items]="arrayTotalPago" legendTitle="Valor Pago (milhões)"
+                    categoryProperty="mes_movimentacao" valueProperty="valor_pago">
+                </LineSeries>
+                <LineSeries tkCartesianSeries [items]="arrayTotalEmpenhado" legendTitle="Valor Empenhado (milhões)"
+                    categoryProperty="mes_movimentacao" valueProperty="valor_empenhado">
+                </LineSeries>
+                <LineSeries tkCartesianSeries [items]="arrayTotalLiquidado" legendTitle="Valor Liquidado (milhões)"
+                    categoryProperty="mes_movimentacao" valueProperty="valor_liquidado">
+                </LineSeries>
+
+                <RadLegendView tkCartesianLegend position="Top" title="" height="100"></RadLegendView>
+
+            </RadCartesianChart>
+
+        </StackLayout>
+
+        <StackLayout row="1" column="0" id="totalStack" class="stack1" style="margin-top: 150px;"
+            orientation="vertical">
+
+            <Label android:horizontalAlignment="center" class="totalLegend" text="Total Pago"></Label>
+            <Label class="totalValor" [text]="totalPagoString"></Label>
+
+            <Label class="totalLegend" text="Total Empenhado"></Label>
+            <Label class="totalValor" [text]="totalEmpenhadoString"></Label>
+
+            <Label class="totalLegend" text="Total Liquidado"></Label>
+            <Label class="totalValor" [text]="totalLiquidadoString"></Label>
+
+        </StackLayout>
+
+        <GridLayout id="totalPorFuncao" row="2" column="0" tkExampleTitle tkToggleNavButton class="root stack1"
+            rows="auto, auto, 300, auto">
+
+            <Label class="title" text="Total por Função"></Label>
+
+            <RadCartesianChart row="2" allowAnimations="false">
+
+                <RadCartesianChartGrid tkCartesianGrid horizontalLinesVisible="true" verticalLinesVisible="false"
+                    horizontalStripLinesVisible="true" verticalStripLinesVisible="false"
+                    horizontalStrokeColor="#00000000" verticalStrokeColor="#00000000"
+                    horizontalStripLineColor="#00000000, #00000000">
+                </RadCartesianChartGrid>
+
+                <BarSeries maxBarSize="500" id="totalPagoFuncaoBarSeries" legendTitle="Total Pago" tkCartesianSeries
+                    [items]="arrayTotalPagoFuncao" categoryProperty="funcao_nome" valueProperty="valor_pago"
+                    legendTitle="Valor Pago (milhões)">
+                </BarSeries>
+                <BarSeries maxBarSize="500" id="totalEmpenhadoFuncaoBarSeries" legendTitle="Total Empenhado"
+                    tkCartesianSeries [items]="arrayTotalEmpenhadoFuncao" categoryProperty="funcao_nome"
+                    valueProperty="valor_empenhado" legendTitle="Valor Empenhado (milhões)">
+                </BarSeries>
+                <BarSeries maxBarSize="500" id="totalLiquidadoFuncaoBarSeries" legendTitle="Total Liquidado"
+                    tkCartesianSeries [items]="arrayTotalLiquidadoFuncao" categoryProperty="funcao_nome"
+                    valueProperty="valor_liquidado" legendTitle="Valor Liquidado (milhões)">
+                </BarSeries>
+
+                <LinearAxis tkCartesianHorizontalAxis></LinearAxis>
+                <CategoricalAxis tkCartesianVerticalAxis></CategoricalAxis>
+
+                <RadLegendView tkCartesianLegend position="Top" title="" height="100"></RadLegendView>
+
+            </RadCartesianChart>
+
+        </GridLayout>
+
+        <StackLayout row="3" column="0" class="stack1" style="margin-top: 50px;" orientation="vertical">
+
+            <Label class="title" text="Total Pago por Modalidade"></Label>
+
+            <RadPieChart allowAnimation="true" row="1">
+                <DonutSeries tkPieSeries showLabels="true" selectionMode="DataPoint" expandRadius="0.4"
+                    outerRadiusFactor="0.7" innerRadiusFactor="0.4" valueProperty="valor_pago"
+                    legendLabel="empenho_modalidade_nome" [items]="arrayTotalPagoModalidade"></DonutSeries>
+
+                <RadLegendView tkPieLegend position="Bottom" title="Modalidades" offsetOrigin="TopRight" width="110"
+                    enableSelection="true"></RadLegendView>
+            </RadPieChart>
+
+        </StackLayout>
+
+    </GridLayout>
+</ScrollView>

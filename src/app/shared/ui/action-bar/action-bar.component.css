@@ -1,0 +1,21 @@
+/* Add mobile styles for the component here.  */
+ActionBar {
+    
+    background-color: #0086cd;
+}
+
+NavigationButton {
+    height: 40;
+    width: 40;
+}
+
+.action-image {
+    width: 40;
+    height: 40;
+}
+
+.action-label {
+    color: white;
+    font-size: 16;
+    vertical-align: center;
+}

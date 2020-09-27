@@ -1,0 +1,10 @@
+<ActionBar (loaded)="onLoadedActionBar();">
+    <NavigationButton text="Back" android.systemIcon="ic_menu_back" (tap)="onGoBack()"></NavigationButton>
+    <NavigationButton icon="res://menu_black" (tap)="onToggleMenu();" ></NavigationButton>
+    <StackLayout orientation="horizontal" android:horizontalAlignment="center">        
+        <Label [text]="title" class="action-label"></Label>
+        <Image *ngIf="showBandeira"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Bandeira_de_Recife.svg/275px-Bandeira_de_Recife.svg.png"
+            class="action-image"></Image>
+    </StackLayout>
+</ActionBar>

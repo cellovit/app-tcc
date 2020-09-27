@@ -1,0 +1,138 @@
+.stack1 {
+    border-color: #5f6368;
+    border-width: 1;
+    border-radius: 15;
+    margin: 20 5;
+}
+
+#totalStack {
+    text-align: center;
+    background-color: #0086cd;
+    height: auto;
+    width: 100%;
+    padding: 5px;
+}
+
+.totalLegend {
+    color: white;
+    font-weight: 800;
+    font-size: 14px;
+}
+
+.totalValor {
+    color: white;
+    font-size: 18px;
+}
+
+#totalPorFuncao RadCartesianChart {
+    margin: 0;
+    padding: 0;
+}
+
+/* #totalPorFuncao LinearAxis {
+    maximum: 0;
+} */
+
+#totalPorFuncao CategoricalAxis,
+#totalPorFuncao LinearAxis {
+    line-hidden: true;
+    ticks-hidden: true;
+}
+
+#totalPorFuncao CategoricalAxis ChartAxisLabel {
+    color: #3c4044;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+#totalPorFuncao LinearAxis ChartAxisLabel {
+    color: transparent;
+}
+
+#totalPorFuncao BarSeries {
+    show-labels: true;
+    max-bar-size: 50;
+}
+
+/* #totalPorFuncao ChartSeriesLabel {
+    margin: 10;
+    font-weight: bold;
+    background-color: #60B3FC;
+    font-size: 10;
+    color: white;
+} */
+
+/* #totalPorFuncao BarSeries {
+    show-labels: true;
+    fill-color: #c8a1ff;
+    stroke-color: white;
+    stroke-width: 40;
+}
+
+#totalPorFuncao BarSeries[index="1"] {
+    fill-color: #6215ee;
+}
+
+#totalPorFuncao BarSeries[index="2"] {
+    fill-color: #ee1568;
+} */
+
+#totalPorFuncao ChartSeriesLabel {
+    margin: 30;
+    font-size: 11;
+    color: #000000;
+    background-color: transparent;
+    border-color: transparent;
+    border-width: 2;
+    format: "R$ %d Mi";
+}
+
+#totalPorFuncao BarSeries[index="1"] ChartSeriesLabel {
+    color: #6215ee;
+}
+
+#totalPorFuncao BarSeries[index="2"] ChartSeriesLabel {
+    color: #ee1568;
+}
+
+.root {
+    background: white;
+}
+
+Label.title {
+    font-size: 26;
+    margin: 12 12 0 12;
+    color: #212121;
+}
+
+Label.subtitle {
+    font-size: 14;
+    margin: 0 12 0 12;
+    color: #70212121;
+}
+
+.legend {
+    margin: 20;
+    color: #5f6368;
+}
+
+.legend .symbol {
+    border-radius: 20;
+    width: 20;
+    height: 20;
+}
+
+.legend .symbol.first {
+    background: #7eb910;
+    margin: 0 5 0 0;
+}
+
+.legend .symbol.second {
+    background: #9854f6;
+    margin: 0 5 0 0;
+}
+
+.legend .symbol.third {
+    background: #1585ee;
+    margin: 0 5 0 0;
+}

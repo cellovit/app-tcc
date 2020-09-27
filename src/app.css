@@ -23,3 +23,12 @@ The following CSS rule changes the font size of all Buttons that have the
 Button.-primary {
     font-size: 18;
 }
+
+Button.-primary {
+    font-size: 18;
+}
+
+.mat-icon {
+    font-family: "MaterialIcons-Regular", "Material Icons";
+    font-weight: 400;
+}

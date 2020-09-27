@@ -1,2 +1,44 @@
 <!-- https://docs.nativescript.org/angular/core-concepts/angular-navigation.html#page-router-outlet -->
-<page-router-outlet></page-router-outlet>
+<RadSideDrawer class="sideDrawer" tkExampleTitle tkToggleNavButton>
+    <StackLayout tkDrawerContent class="drawerContent">
+        <StackLayout class="sideTitleStackLayout">
+
+            <Image class="govbrLogo"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Bandeira_de_Recife.svg/275px-Bandeira_de_Recife.svg.png"></Image>
+            <Label class="nomePrefeitura" text="Prefeitura Municipal de Recife"></Label>
+
+        </StackLayout>
+
+        <RadListView [items]="itensSidenav" [itemTemplateSelector]="templateSelector" class="list-group"
+            (itemTap)="onItemTap($event)">
+            <ng-template tkListItemTemplate let-item="item">
+                <StackLayout class="btn-img" orientation="horizontal" padding="5" class="add-dropdown">
+                    <Image [src]="item.srcIcon" width="20" height="20" marginRight="10"></Image>
+                    <Label [text]="item.titulo" verticalAlignment="center" class="list-item"></Label>
+
+                    <Image src="res://baseline_add_black_24" width="20" height="20" marginLeft="10"></Image>
+                </StackLayout>
+
+            </ng-template>
+            <ng-template tkTemplateKey="expanded" let-item="item">
+                <StackLayout margin="0" padding="0">
+                    <StackLayout class="btn-img" orientation="horizontal" padding="5">
+                        <Image [src]="item.srcIcon" width="20" height="20" marginRight="10"></Image>
+                        <Label [text]="item.titulo" verticalAlignment="center" class="list-item"></Label>
+                        <Image src="res://baseline_remove_black_24" width="20" height="20" marginLeft="10"></Image>
+                    </StackLayout>
+
+                    <StackLayout *ngFor="let child of item.children" class="btn-img" orientation="horizontal"
+                        padding="5" (tap)="chilTap(child.url)">
+                        <Image [src]="child.srcIcon" width="20" height="20" marginRight="10"></Image>
+                        <Label [text]="child.titulo" verticalAlignment="center" class="list-item"></Label>
+                    </StackLayout>
+
+                </StackLayout>
+            </ng-template>
+        </RadListView>
+    </StackLayout>
+    <StackLayout tkMainContent>
+        <page-router-outlet></page-router-outlet>
+    </StackLayout>
+</RadSideDrawer>

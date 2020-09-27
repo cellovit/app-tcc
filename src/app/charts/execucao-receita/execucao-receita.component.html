@@ -1,0 +1,19 @@
+<ns-progress-spinner *ngIf="!rendered"></ns-progress-spinner>
+
+<ScrollView #scrollView visibility="{{ rendered ? 'visible' : 'collapsed' }}">
+    <GridLayout height="2000" columns="*" rows="500, auto, 500, 500">
+
+        <StackLayout style="margin-top: 150px;" class="stack1" height="100%" width="100%" row="0" column="0">
+
+            <RadCartesianChart>
+                <AreaSeries tkCartesianSeries [items]="firstSeries" stackMode="Stack" categoryProperty="orgao_nome" valueProperty="Amount"></AreaSeries>
+                <!-- <AreaSeries tkCartesianSeries [items]="secondSeries" stackMode="Stack" categoryProperty="orgao_nome" valueProperty="Amount"></AreaSeries>
+                <AreaSeries tkCartesianSeries [items]="thirdSeries" stackMode="Stack" categoryProperty="orgao_nome" valueProperty="Amount"></AreaSeries> -->
+            
+                <CategoricalAxis tkCartesianHorizontalAxis></CategoricalAxis>
+                <LinearAxis tkCartesianVerticalAxis></LinearAxis>
+            </RadCartesianChart>
+           
+        </StackLayout>
+    </GridLayout>
+</ScrollView>

@@ -1,0 +1,54 @@
+.btn-img {
+    border: none;
+    color: black;
+    margin: 0;
+    font-size: 16;
+    width: 100%;
+}
+
+RadSideDrawer .drawerContentText {
+    font-size: 13;
+    padding: 10;
+}
+
+.sideDrawer {
+    background: linear-gradient(140deg, #0086cd, #ffffff);
+}
+
+.nomePrefeitura {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.sideStackLayout {
+    width: 100%;
+    background-color: white;
+}
+
+.sideStackLayout .navigationButton {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.sideTitleStackLayout {
+    text-align: center;
+    vertical-align: center;
+    background-color: #0086cd;
+    color: white;
+    width: 100%;
+}
+
+.govbrLogo {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+}
+
+.list-item {
+    font-size: 14px;
+    width: 70%;
+    vertical-align: center;
+}
+
+/* << sidedrawer-getting-started-angular-css */

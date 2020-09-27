@@ -1,0 +1,26 @@
+<ns-action-bar [title]="title" [showBandeira]="false"></ns-action-bar>
+<Tabs selectedIndex="1">
+    <TabStrip highlightColor="#0086cd">
+        <TabStripItem class="special">
+            <Label text="Exercício 2018"></Label>
+        </TabStripItem>
+        <TabStripItem class="special">
+            <Label text="Exercício 2019"></Label>
+        </TabStripItem>
+    </TabStrip>
+
+    <TabContentItem>
+        <ng-container>
+            <StackLayout>
+                <ns-execucao-despesas [exercicio]="2018"></ns-execucao-despesas>
+            </StackLayout>
+        </ng-container>
+    </TabContentItem>
+    <TabContentItem>
+        <ng-container>
+            <StackLayout>
+                <ns-execucao-despesas [exercicio]=" 2019"></ns-execucao-despesas>
+            </StackLayout>
+        </ng-container>
+    </TabContentItem>
+</Tabs>
