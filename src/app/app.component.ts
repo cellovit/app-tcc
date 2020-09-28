@@ -10,9 +10,10 @@ import { RouterExtensions } from "nativescript-angular/router";
 
 @Component({
     selector: "ns-app",
-    templateUrl: "./app.component.html"
+    templateUrl: "./app.component.html",
+    styleUrls: ['app.component.css']
 })
-export class AppComponent { 
+export class AppComponent {
 
     private drawer: RadSideDrawer;
     private drawerSub: Subscription;
@@ -38,28 +39,39 @@ export class AppComponent {
         });
 
         this.itensSidenav = new ObservableArray([
-            {
-                titulo: 'Receitas', srcIcon: 'res://baseline_ballot_black_24', expanded: false,
-                children: [
-                    { titulo: 'Execução da Receita (?)', url: 'execucao-receita', srcIcon: '', expanded: false, children: [] },
-                    // { titulo: 'Comparativo Mensal', srcIcon: '', expanded: false, children: [] },
-                    { titulo: 'Lançado x Arrecadado', url: 'lancado-arrecadado', srcIcon: '', expanded: false, children: [] },
-                ]
-            },
-            {
-                titulo: 'Despesas', srcIcon: 'res://baseline_attach_money_black_24', expanded: false,
-                children: [
 
-                    { titulo: 'Execução da Despesa', url: 'execucao-despesa', srcIcon: '', expanded: false, children: [] },
-                    { titulo: 'Resultado Orçamentário (?)', url: 'resultado-orcamentario', srcIcon: '', expanded: false, children: [] }
-                ]
-            },
             {
-                titulo: 'Licitações', srcIcon: 'res://baseline_gavel_black_24', expanded: false,
+                titulo: 'Datasets Disponíveis', srcIcon: '', expanded: false,
                 children: [
-                    { titulo: 'Processo Licitatório (?)', url: 'processo-licitatorio', srcIcon: '', expanded: false, children: [] }
+                    { titulo: 'Receitas', url: 'execucao-receita', srcIcon: 'res://baseline_ballot_black_24', expanded: false, children: [] },
+                    { titulo: 'Despesas', srcIcon: 'res://baseline_attach_money_black_24', expanded: false, children: [] },
+                    { titulo: 'Licitações', srcIcon: 'res://baseline_gavel_black_24', expanded: false, children: [] }
+
                 ]
             }
+
+            // {
+            //     titulo: 'Receitas', srcIcon: 'res://baseline_ballot_black_24', expanded: false,
+            //     children: [
+            //         { titulo: 'Execução da Receita (?)', url: 'execucao-receita', srcIcon: '', expanded: false, children: [] },
+            //         // { titulo: 'Comparativo Mensal', srcIcon: '', expanded: false, children: [] },
+            //         { titulo: 'Lançado x Arrecadado', url: 'lancado-arrecadado', srcIcon: '', expanded: false, children: [] },
+            //     ]
+            // },
+            // {
+            //     titulo: 'Despesas', srcIcon: 'res://baseline_attach_money_black_24', expanded: false,
+            //     children: [
+
+            //         { titulo: 'Execução da Despesa', url: 'execucao-despesa', srcIcon: '', expanded: false, children: [] },
+            //         { titulo: 'Resultado Orçamentário (?)', url: 'resultado-orcamentario', srcIcon: '', expanded: false, children: [] }
+            //     ]
+            // },
+            // {
+            //     titulo: 'Licitações', srcIcon: 'res://baseline_gavel_black_24', expanded: false,
+            //     children: [
+            //         { titulo: 'Processo Licitatório (?)', url: 'processo-licitatorio', srcIcon: '', expanded: false, children: [] }
+            //     ]
+            // }
         ]);
     }
 

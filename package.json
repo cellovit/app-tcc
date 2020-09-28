@@ -23,6 +23,7 @@
     "@nativescript/theme": "~2.3.3",
     "@nstudio/nativescript-loading-indicator": "^3.0.4",
     "nativescript-angular": "~8.21.0",
+    "nativescript-drop-down": "^5.0.6",
     "nativescript-ui-chart": "^7.1.1",
     "nativescript-ui-listview": "^8.2.0",
     "nativescript-ui-sidedrawer": "^8.0.1",

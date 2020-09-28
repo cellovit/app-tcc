@@ -6,7 +6,7 @@ import { TabExecucaoDespesaComponent } from "./charts/execucao-despesas/tab-exec
 import { HomeComponent } from "./home/home.component";
 
 const routes: Routes = [
-    { path: "", component: TabExecucaoDespesaComponent },
+    { path: "", component: HomeComponent },
     { path: "home", component: HomeComponent },
 ];
 
