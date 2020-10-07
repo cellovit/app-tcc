@@ -1,73 +1,44 @@
 <ns-action-bar [title]="title"></ns-action-bar>
-<ScrollView>
-    <GridLayout height="1500" columns="*" rows="*,*,*">
-        <!-- <TextView  class="lbl1" [text]="jsonParsed" ></TextView > -->
 
-        <RadCartesianChart height="500" row="0" col="0" tkExampleTitle tkToggleNavButton allowAnimation="true"
-            (pointSelected)="onSelected($event)" (pointDeselected)="onDeselected($event)">
+<StackLayout>
 
+    <GridLayout rows="auto, auto, auto" columns="3*, 2*">
 
-            <BarSeries tkCartesianSeries legendTitle="Valor Pago" selectionMode="DataPoint" [items]="json1"
-                categoryProperty="mes_movimentacao" valueProperty="valor_pago">
+        <Label class="datasetLabel" row="0" col="0" text="Selecionar Dataset: "></Label>
 
-                <LinearAxis tkCartesianVerticalAxis></LinearAxis>
-                <CategoricalAxis tkCartesianHorizontalAxis></CategoricalAxis>
-
-            </BarSeries>
-
-            <BarSeries tkCartesianSeries legendTitle="Valor Empenhado" selectionMode="DataPoint" [items]="json1"
-                categoryProperty="mes_movimentacao" valueProperty="valor_empenhado">
-
-                <LinearAxis tkCartesianVerticalAxis></LinearAxis>
-                <CategoricalAxis tkCartesianHorizontalAxis></CategoricalAxis>
-
-            </BarSeries>
-
-            <BarSeries tkCartesianSeries legendTitle="Valor Liquidado" selectionMode="DataPoint" [items]="json1"
-                categoryProperty="mes_movimentacao" valueProperty="valor_liquidado">
-
-                <LinearAxis tkCartesianVerticalAxis></LinearAxis>
-                <CategoricalAxis tkCartesianHorizontalAxis></CategoricalAxis>
-
-            </BarSeries>
-
-            <RadLegendView tkCartesianLegend position="Top" title="" height="100"></RadLegendView>
-
-        </RadCartesianChart>
-
-        <GridLayout height="500" row="1" col="0" tkExampleTitle tkToggleNavButton class="root" rows="auto, *, auto">
-            <Label class="title" text="Despesas por Orgão (TOP 5)"></Label>
-            <WrapLayout class="legend" row="2" orientation="horizontal">
-                <StackLayout orientation="horizontal">
-                    <Label class="symbol first"></Label>
-                    <Label [text]="json2[0]?.orgao_nome"></Label>
-                </StackLayout>
-                <StackLayout orientation="horizontal">
-                    <Label class="symbol second"></Label>
-                    <Label [text]="json2[1]?.orgao_nome"></Label>
-                </StackLayout>
-                <StackLayout orientation="horizontal">
-                    <Label class="symbol third"></Label>
-                    <Label [text]="json2[2]?.orgao_nome"></Label>
-                </StackLayout>
-                <StackLayout orientation="horizontal">
-                    <Label class="symbol fourth"></Label>
-                    <Label [text]="json2[3]?.orgao_nome"></Label>
-                </StackLayout>
-                <StackLayout orientation="horizontal">
-                    <Label class="symbol fifth"></Label>
-                    <Label [text]="json2[4]?.orgao_nome"></Label>
-                </StackLayout>
-            </WrapLayout>
-            <RadPieChart row="1" allowAnimations="false">
-                <DonutSeries tkPieSeries startAngle="-90" endAngle="270" valueProperty="valor_pago"
-                    [items]="json2"></DonutSeries>
-            </RadPieChart>
-            <StackLayout row="1" class="chart-label">
-                <Label class="chart-title" [text]="gastoTotalOrgaos"></Label>
-                <Label class="chart-subtitle" text=""></Label>
-            </StackLayout>
-        </GridLayout>
+        <DropDown class="default" [items]="datasetsDisponiveis" [(ngModel)]="datasetSelecionado" hint=""
+            (selectedIndexChanged)="onchange($event)" row="0" col="1">
+        </DropDown>
 
     </GridLayout>
-</ScrollView>
+
+    <GridLayout rows="auto, auto, auto" columns="3*, 2*">
+
+        <Label class="datasetLabel" row="0" col="0" text="Selecionar Exercício: "></Label>
+
+        <DropDown class="default" [items]="exerciciosDisponiveis" [(ngModel)]="exercicioSelecionado" hint=""
+            (selectedIndexChanged)="onchange($event)" row="0" col="1">
+        </DropDown>
+
+    </GridLayout>
+
+    <GridLayout rows="auto, auto, auto" columns="*">
+
+        <Label class="varLabel" row="0" col="0" text="Variável X: "></Label>
+
+        <DropDown #dd1 class="default" [items]="var1" [(ngModel)]="xAxis" hint="" row="1" col="0">
+        </DropDown>
+    </GridLayout>
+
+    <GridLayout rows="auto, auto, auto" columns="*">
+        <Label class="varLabel" row="0" col="0" text="Variável Y: "></Label>
+
+        <DropDown #dd2 class="default" [items]="var2" [(ngModel)]="yAxis" hint="" row="1" col="0">
+        </DropDown>
+    </GridLayout>
+    
+
+    <Button class="btn btn-primary" row="2" col="0" text="Gerar gráfico" nsRouterLink="/execucao-despesa"
+        style="font-size: 12"></Button>
+
+</StackLayout>

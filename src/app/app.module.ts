@@ -20,6 +20,8 @@ import { LancadoArrecadadoComponent } from "./charts/lancado-arrecadado/lancado-
 import { ProgressSpinnerComponent } from "./shared/ui/progress-spinner/progress-spinner.component";
 import { ExecucaoReceitaComponent } from "./charts/execucao-receita/execucao-receita.component";
 import { TabExecucaoReceitaComponent } from "./charts/execucao-receita/tab-execucao-receita/tab-execucao-receita.component";
+import { DropDownModule } from "nativescript-drop-down/angular";
+import { ChartExampleComponent } from './charts/chart-example/chart-example.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -40,7 +42,8 @@ import { TabExecucaoReceitaComponent } from "./charts/execucao-receita/tab-execu
         NativeScriptRouterModule,
         NativeScriptUISideDrawerModule,
         NativeScriptUIChartModule,
-        NativeScriptUIListViewModule
+        NativeScriptUIListViewModule,
+        DropDownModule
     ],
     declarations: [
         AppComponent,
@@ -54,7 +57,8 @@ import { TabExecucaoReceitaComponent } from "./charts/execucao-receita/tab-execu
         TabExecucaoDespesaComponent,
         ProgressSpinnerComponent,
         ExecucaoReceitaComponent,
-        TabExecucaoReceitaComponent
+        TabExecucaoReceitaComponent,
+        ChartExampleComponent
     ],
     providers: [],
     schemas: [
