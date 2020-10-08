@@ -2,6 +2,11 @@ import { Component, OnInit, Inject, ViewChild, ChangeDetectorRef } from "@angula
 import { DatasetRecifeService } from "../dataset-municipio/dataset-recife.service";
 import { SelectedIndexChangedEventData, ValueList } from "nativescript-drop-down";
 import { BackendQuarkusService } from "../services/backend-quarkus.service";
+import { BarSeries, CategoricalAxis, LinearAxis, RadCartesianChart, RadPieChart } from "nativescript-ui-chart";
+import { EventData, Page } from "tns-core-modules/ui/page";
+import { RouterExtensions } from "nativescript-angular";
+import { NavigationExtras } from "@angular/router";
+import { ChartType } from "../models/ChartType";
 
 @Component({
     moduleId: module.id,
@@ -12,7 +17,11 @@ import { BackendQuarkusService } from "../services/backend-quarkus.service";
 export class HomeComponent implements OnInit {
 
     private title = 'Prefeitura Municipal de Recife';
+    showGenerateGraphButton = false;
+    showAxes = false;
 
+    xAxis = '';
+    yAxis = '';
     xAxisIndex;
     yAxisIndex;
     datasetSelecionado = '';
@@ -23,9 +32,12 @@ export class HomeComponent implements OnInit {
     datasetsDisponiveis = new ValueList<any>();
     exerciciosDisponiveis = new ValueList<any>();
 
+    chart: RadPieChart;
+
     constructor(
-        private datasetService: DatasetRecifeService,
-        private backendService: BackendQuarkusService
+        // private datasetService: DatasetRecifeService,
+        private backendService: BackendQuarkusService,
+        page: Page, private routerExtensions: RouterExtensions
     ) { }
 
     ngOnInit() {
@@ -68,12 +80,12 @@ export class HomeComponent implements OnInit {
 
             res.Numerical.forEach(element => {
 
-                if(element !== '_id') {
+                if (element !== '_id') {
                     this.var1.push({
                         value: element,
                         display: element,
                     });
-    
+
                     this.var2.push({
                         value: element,
                         display: element,
@@ -84,17 +96,55 @@ export class HomeComponent implements OnInit {
     }
 
     gerarGrafico() {
-        const xAxis = this.var1.getValue(this.xAxisIndex);
-        const yAxis = this.var2.getValue(this.yAxisIndex);
+        this.xAxis = this.var1.getValue(this.xAxisIndex);
+        this.yAxis = this.var2.getValue(this.yAxisIndex);
 
-        this.backendService.getChartTypes(this.datasetSelecionado, this.exercicioSelecionado, xAxis, yAxis).subscribe(res => {
-            console.log(res);
+        this.backendService.getChartTypes(this.datasetSelecionado, this.exercicioSelecionado, this.xAxis, this.yAxis).subscribe(res => {
+            // console.log(res);
+
+            this.navigateToChartsComponent(res, this.datasetSelecionado, this.exercicioSelecionado, this.xAxis, this.yAxis);
+
         });
     }
 
     private limpaAxis() {
         this.var1 = new ValueList<any>();
         this.var2 = new ValueList<any>();
+    }
+
+    private constructChart() {
+
+        const cartesianChart = new RadCartesianChart();
+        const barSeries = new BarSeries();
+
+        const horizontalAxis = new CategoricalAxis();
+        const verticalAxis = new LinearAxis();
+
+        horizontalAxis.setProperty('display', this.exerciciosDisponiveis);
+        verticalAxis.setProperty('value', this.exerciciosDisponiveis);
+
+        barSeries.horizontalAxis = horizontalAxis;
+        barSeries.verticalAxis = verticalAxis;
+
+        cartesianChart.series.push(barSeries);
+
+        // cartesianChart.
+
+    }
+
+    private navigateToChartsComponent(chartTypes: Array<ChartType>, datasetSelecionado: string, exercicioSelecionado: number, xAxis: string, yAxis: string) {
+        const navigationExtras: NavigationExtras = {
+            queryParams: {
+                'chartTypes': chartTypes,
+                'datasetSelecionado': datasetSelecionado,
+                'exercicioSelecionado': exercicioSelecionado,
+                'xAxis': xAxis,
+                'yAxis': yAxis
+            }
+        };
+
+        this.routerExtensions.navigate(['/generated-chart'], navigationExtras);
+
     }
 
 }

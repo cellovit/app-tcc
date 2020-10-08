@@ -22,7 +22,7 @@
 
     </GridLayout>
 
-    <GridLayout rows="auto, auto, auto" columns="*">
+    <GridLayout rows="auto, auto, auto" columns="*" *ngIf="exercicioSelecionado !== undefined">
 
         <Label class="varLabel" row="0" col="0" text="Variável X: "></Label>
 
@@ -30,7 +30,7 @@
         </DropDown>
     </GridLayout>
 
-    <GridLayout rows="auto, auto, auto" columns="*">
+    <GridLayout rows="auto, auto, auto" columns="*" *ngIf="exercicioSelecionado !== undefined">
         <Label class="varLabel" row="0" col="0" text="Variável Y: "></Label>
 
         <DropDown #dd2 class="default" [items]="var2" [(ngModel)]="yAxisIndex" hint="" row="1" col="0">
@@ -41,7 +41,7 @@
     <!-- <Button class="btn btn-primary" row="2" col="0" text="Gerar gráfico" nsRouterLink="/execucao-despesa"
         style="font-size: 12"></Button> -->
 
-    <Button class="btn btn-primary" row="2" col="0" (tap)="gerarGrafico();" text="Gerar gráfico"
-        style="font-size: 12"></Button>
+    <Button *ngIf="yAxisIndex" class="btn btn-primary" row="2" col="0" (tap)="gerarGrafico();"
+        text="Gerar gráfico" style="font-size: 12"></Button>
 
 </StackLayout>

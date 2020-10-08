@@ -1,3 +1,18 @@
 {
-    "java.home": "C:\\Program Files\\Java\\java-11-openjdk-11.0.8.10-2.windows.redhat.x86_64"
+    "java.home": "C:\\Program Files\\Java\\java-11-openjdk-11.0.8.10-2.windows.redhat.x86_64",
+    "NativescriptExtend.fileAssociations": [
+        {
+            "systemId": "c:\\Users\\Marcelo\\Documents\\projects\\app-tcc\\schema\\tns.xsd",
+            "pattern": "**/**/*.xml"
+        },
+        {
+            "systemId": "http://www.w3.org/2001/XMLSchema.xsd",
+            "pattern": "c:\\Users\\Marcelo\\Documents\\projects\\app-tcc\\schema\\tns.xsd"
+        }
+    ],
+    "files.exclude": {
+        "schema": true
+    },
+    "NativescriptExtend.format.enabled": true,
+    "NativescriptExtend.validation.enabled": true
 }

@@ -22,6 +22,7 @@ import { ExecucaoReceitaComponent } from "./charts/execucao-receita/execucao-rec
 import { TabExecucaoReceitaComponent } from "./charts/execucao-receita/tab-execucao-receita/tab-execucao-receita.component";
 import { DropDownModule } from "nativescript-drop-down/angular";
 import { ChartExampleComponent } from './charts/chart-example/chart-example.component';
+import { GeneratedChartComponent } from './charts/generated-chart/generated-chart.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -58,7 +59,8 @@ import { ChartExampleComponent } from './charts/chart-example/chart-example.comp
         ProgressSpinnerComponent,
         ExecucaoReceitaComponent,
         TabExecucaoReceitaComponent,
-        ChartExampleComponent
+        ChartExampleComponent,
+        GeneratedChartComponent
     ],
     providers: [],
     schemas: [

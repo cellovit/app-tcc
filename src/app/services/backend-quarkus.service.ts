@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ChartType } from '../models/ChartType';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +26,7 @@ export class BackendQuarkusService {
   }
 
   // /chartTypes/{categoria}/{exercicio}/{xAxis}/{yAxis}
-  public getChartTypes(categoria: string, exercicio: number, xAxis: string, yAxis: string): Observable<any> {
+  public getChartTypes(categoria: string, exercicio: number, xAxis: string, yAxis: string): Observable<Array<ChartType>> {
     return this.httpClient.get<any>(`${this.uri}/data/chartTypes/${categoria}/${exercicio}/${xAxis}/${yAxis}`, );
   }
 }
