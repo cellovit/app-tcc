@@ -6,8 +6,8 @@
 
         <Label class="datasetLabel" row="0" col="0" text="Selecionar Dataset: "></Label>
 
-        <DropDown class="default" [items]="datasetsDisponiveis" [(ngModel)]="datasetSelecionado" hint=""
-            (selectedIndexChanged)="onchange($event)" row="0" col="1">
+        <DropDown class="default" [items]="datasetsDisponiveis" hint=""
+            (selectedIndexChanged)="onSelectedDatasetChange($event)" row="0" col="1">
         </DropDown>
 
     </GridLayout>
@@ -16,8 +16,8 @@
 
         <Label class="datasetLabel" row="0" col="0" text="Selecionar Exercício: "></Label>
 
-        <DropDown class="default" [items]="exerciciosDisponiveis" [(ngModel)]="exercicioSelecionado" hint=""
-            (selectedIndexChanged)="onchange($event)" row="0" col="1">
+        <DropDown class="default" [items]="exerciciosDisponiveis" hint=""
+            (selectedIndexChanged)="onSelectedExercicioChange($event)" row="0" col="1">
         </DropDown>
 
     </GridLayout>
@@ -26,19 +26,22 @@
 
         <Label class="varLabel" row="0" col="0" text="Variável X: "></Label>
 
-        <DropDown #dd1 class="default" [items]="var1" [(ngModel)]="xAxis" hint="" row="1" col="0">
+        <DropDown #dd1 class="default" [items]="var1" [(ngModel)]="xAxisIndex" hint="" row="1" col="0">
         </DropDown>
     </GridLayout>
 
     <GridLayout rows="auto, auto, auto" columns="*">
         <Label class="varLabel" row="0" col="0" text="Variável Y: "></Label>
 
-        <DropDown #dd2 class="default" [items]="var2" [(ngModel)]="yAxis" hint="" row="1" col="0">
+        <DropDown #dd2 class="default" [items]="var2" [(ngModel)]="yAxisIndex" hint="" row="1" col="0">
         </DropDown>
     </GridLayout>
-    
 
-    <Button class="btn btn-primary" row="2" col="0" text="Gerar gráfico" nsRouterLink="/execucao-despesa"
+
+    <!-- <Button class="btn btn-primary" row="2" col="0" text="Gerar gráfico" nsRouterLink="/execucao-despesa"
+        style="font-size: 12"></Button> -->
+
+    <Button class="btn btn-primary" row="2" col="0" (tap)="gerarGrafico();" text="Gerar gráfico"
         style="font-size: 12"></Button>
 
 </StackLayout>

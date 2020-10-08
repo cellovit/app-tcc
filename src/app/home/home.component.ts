@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject, ViewChild, ChangeDetectorRef } from "@angular/core";
 import { DatasetRecifeService } from "../dataset-municipio/dataset-recife.service";
 import { SelectedIndexChangedEventData, ValueList } from "nativescript-drop-down";
+import { BackendQuarkusService } from "../services/backend-quarkus.service";
 
 @Component({
     moduleId: module.id,
@@ -12,10 +13,10 @@ export class HomeComponent implements OnInit {
 
     private title = 'Prefeitura Municipal de Recife';
 
-    xAxis;
-    yAxis;
-    datasetSelecionado;
-    exercicioSelecionado;
+    xAxisIndex;
+    yAxisIndex;
+    datasetSelecionado = '';
+    exercicioSelecionado: number;
 
     var1 = new ValueList<any>();
     var2 = new ValueList<any>();
@@ -23,53 +24,77 @@ export class HomeComponent implements OnInit {
     exerciciosDisponiveis = new ValueList<any>();
 
     constructor(
-        private datasetService: DatasetRecifeService
+        private datasetService: DatasetRecifeService,
+        private backendService: BackendQuarkusService
     ) { }
 
     ngOnInit() {
-        // for (let loop = 0; loop < 5; loop++) {
-        //     this.var1.push({
-        //         value: `I${loop}`,
-        //         display: `Item ${loop}`,
-        //     });
+        this.exerciciosDisponiveis.push({ value: 0, display: 'Sem exercício' });
+        this.exerciciosDisponiveis.push({ value: 2018, display: '2018' });
+        this.exerciciosDisponiveis.push({ value: 2019, display: '2019' });
+        this.exerciciosDisponiveis.push({ value: 2020, display: '2020' });
 
-        //     this.var2.push({
-        //         value: `I${loop}`,
-        //         display: `Item ${loop}`,
-        //     });
-        // }
-
-        const campos = ['mes_movimentacao', 'valor_empenhado', 'valor_liquidado', 'funcao_nome', 'empenho_modalidade_nome'];
-
-        campos.forEach(x => {
-            this.var1.push({
-                value: x,
-                display: x,
-            });
-
-            this.var2.push({
-                value: x,
-                display: x,
-            });
-        });
-
-        this.exerciciosDisponiveis.push({ value: '2018', display: '2018' });
-        this.exerciciosDisponiveis.push({ value: '2019', display: '2019' });
-        this.exerciciosDisponiveis.push({ value: '2020', display: '2020' });
-
-        this.datasetsDisponiveis.push({ value: 'Despesas', display: 'Despesas' });
-        this.datasetsDisponiveis.push({ value: 'Receitas', display: 'Receitas' });
-        this.datasetsDisponiveis.push({ value: 'Licitações', display: 'Licitações' });
+        this.datasetsDisponiveis.push({ value: 'despesas', display: 'Despesas' });
+        this.datasetsDisponiveis.push({ value: 'receitas', display: 'Receitas' });
+        this.datasetsDisponiveis.push({ value: 'licitacoes-concluidas', display: 'Licitações Concluídas' });
+        this.datasetsDisponiveis.push({ value: 'licitacoes-andamento', display: 'Licitações em andamento' });
     }
 
-    public onchange(args: SelectedIndexChangedEventData) {
-        // console.log(`Drop Down selected index changed from ${args.oldIndex} to ${args.newIndex}. New value is "${this.items.getValue(
-        //     args.newIndex)}"`);
+    public onSelectedDatasetChange(args: SelectedIndexChangedEventData) {
+        this.datasetSelecionado = this.datasetsDisponiveis.getValue(args.newIndex);
+        this.limpaAxis();
+    }
+
+    public onSelectedExercicioChange(args: SelectedIndexChangedEventData) {
+
+        this.exercicioSelecionado = this.exerciciosDisponiveis.getValue(args.newIndex);
+
+        this.limpaAxis();
+
+        this.backendService.getDatasetFields(this.datasetSelecionado, this.exercicioSelecionado).subscribe(res => {
+            res.Date.forEach(element => {
+                this.var1.push({
+                    value: element,
+                    display: element,
+                });
+            });
+
+            res.Categorical.forEach(element => {
+                this.var1.push({
+                    value: element,
+                    display: element,
+                });
+            });
+
+            res.Numerical.forEach(element => {
+
+                if(element !== '_id') {
+                    this.var1.push({
+                        value: element,
+                        display: element,
+                    });
+    
+                    this.var2.push({
+                        value: element,
+                        display: element,
+                    });
+                }
+            });
+        });
     }
 
     gerarGrafico() {
-        console.log('btn');
+        const xAxis = this.var1.getValue(this.xAxisIndex);
+        const yAxis = this.var2.getValue(this.yAxisIndex);
 
+        this.backendService.getChartTypes(this.datasetSelecionado, this.exercicioSelecionado, xAxis, yAxis).subscribe(res => {
+            console.log(res);
+        });
+    }
+
+    private limpaAxis() {
+        this.var1 = new ValueList<any>();
+        this.var2 = new ValueList<any>();
     }
 
 }
