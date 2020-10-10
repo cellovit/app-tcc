@@ -23,6 +23,10 @@ import { TabExecucaoReceitaComponent } from "./charts/execucao-receita/tab-execu
 import { DropDownModule } from "nativescript-drop-down/angular";
 import { ChartExampleComponent } from './charts/chart-example/chart-example.component';
 import { GeneratedChartComponent } from './charts/generated-chart/generated-chart.component';
+import { BarChartComponent } from './charts/generated-chart/bar-chart/bar-chart.component';
+import { LineChartComponent } from './charts/generated-chart/line-chart/line-chart.component';
+import { ScatterChartComponent } from './charts/generated-chart/scatter-chart/scatter-chart.component';
+import { PieChartComponent } from './charts/generated-chart/pie-chart/pie-chart.component';
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -60,7 +64,11 @@ import { GeneratedChartComponent } from './charts/generated-chart/generated-char
         ExecucaoReceitaComponent,
         TabExecucaoReceitaComponent,
         ChartExampleComponent,
-        GeneratedChartComponent
+        GeneratedChartComponent,
+        BarChartComponent,
+        LineChartComponent,
+        ScatterChartComponent,
+        PieChartComponent
     ],
     providers: [],
     schemas: [

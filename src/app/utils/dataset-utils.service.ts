@@ -67,7 +67,7 @@ export class DatasetUtilsService {
 
   parseDatasetStringValue(propertyValue: string) {
     const parsed: number = Number.parseFloat(propertyValue);
-    return Number(parsed.toFixed(0)) / 1000000;
+    return Number(parsed.toFixed(0));
   }
 
   parseDatasetStringValueReceita(propertyValue: string) {
