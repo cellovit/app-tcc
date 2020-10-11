@@ -32,6 +32,10 @@ export class HomeComponent implements OnInit {
     datasetsDisponiveis = new ValueList<any>();
     exerciciosDisponiveis = new ValueList<any>();
 
+    categoricalFields;
+    dateFields;
+    numericalFields;
+
     chart: RadPieChart;
 
     constructor(
@@ -64,6 +68,11 @@ export class HomeComponent implements OnInit {
         this.limpaAxis();
 
         this.backendService.getDatasetFields(this.datasetSelecionado, this.exercicioSelecionado).subscribe(res => {
+
+            this.categoricalFields = res.Categorical;
+            this.dateFields = res.Date;
+            this.numericalFields = res.Numerical;
+
             res.Date.forEach(element => {
                 this.var1.push({
                     value: element,
@@ -139,7 +148,8 @@ export class HomeComponent implements OnInit {
                 'datasetSelecionado': datasetSelecionado,
                 'exercicioSelecionado': exercicioSelecionado,
                 'xAxis': xAxis,
-                'yAxis': yAxis
+                'yAxis': yAxis,
+                'dateFields': this.dateFields
             }
         };
 

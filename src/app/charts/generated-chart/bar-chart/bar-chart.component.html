@@ -1,1 +1,13 @@
-<Button text="bar-chart works!" class="btn btn-primary"></Button>
+<RadCartesianChart height="1000" width="100%">
+
+    <LinearAxis tkCartesianVerticalAxis></LinearAxis>
+
+    <CategoricalAxis labelFitMode="None" labelLayoutMode="Outer" tkCartesianHorizontalAxis>
+    </CategoricalAxis>
+
+    <!-- Bar -->
+    <BarSeries tkCartesianSeries stackMode="Stack" [items]="chartItems" [categoryProperty]="xAxis"
+        [valueProperty]="yAxis">
+    </BarSeries>
+
+</RadCartesianChart>

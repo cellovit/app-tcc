@@ -1,1 +1,10 @@
-<Button text="pie-chart works!" class="btn btn-primary"></Button>
+<!-- Pie  -->
+
+<RadPieChart allowAnimation="true" *ngIf="chartItems">
+    <PieSeries tkPieSeries selectionMode="DataPoint" expandRadius="0.4" outerRadiusFactor="0.7" [valueProperty]="yAxis"
+        legendLabel="Brand" [items]="chartItems">
+    </PieSeries>
+
+    <RadLegendView tkPieLegend position="Bottom" title="" offsetOrigin="TopRight" width="110" enableSelection="true">
+    </RadLegendView>
+</RadPieChart>

@@ -1,59 +1,8 @@
 <ns-action-bar [title]="title"></ns-action-bar>
 
-
-
 <StackLayout style="margin-top: 50px;" class="stack1" height="1500" width="100%">
-    <RadCartesianChart *ngIf="chartItems" height="1000" width="100%">
 
-        <LinearAxis tkCartesianVerticalAxis></LinearAxis>
+    <ns-bar-chart [datasetSelecionado]="datasetSelecionado" [exercicioSelecionado]="exercicioSelecionado"
+        [xAxis]="xAxis" [yAxis]="yAxis"></ns-bar-chart>
 
-        <CategoricalAxis height="50%" width="50%" labelFitMode="None" labelLayoutMode="Outer"
-            tkCartesianHorizontalAxis>
-        </CategoricalAxis>
-
-        <!-- Bar -->
-        <BarSeries tkCartesianSeries stackMode="Stack" [items]="chartItems" [categoryProperty]="xAxis"
-            [valueProperty]="yAxis">
-        </BarSeries>
-
-        <!-- Line -->
-        <!-- <LineSeries tkCartesianSeries [items]="chartItems" legendTitle=""
-                    [categoryProperty]="xAxis" [valueProperty]="yAxis">
-                </LineSeries> -->
-
-        <!-- Scatter -->
-        <!-- <ScatterSeries tkCartesianSeries [items]="chartItems" [xProperty]="xAxis" [yProperty]="yAxis"></ScatterSeries> -->
-
-
-
-    </RadCartesianChart>
 </StackLayout>
-
-
-<!-- <StackLayout orientation="vertical"> -->
-
-<!-- Pie  -->
-
-<!-- <RadPieChart allowAnimation="true" *ngIf="chartItems">
-        <PieSeries tkPieSeries selectionMode="DataPoint" expandRadius="0.4" outerRadiusFactor="0.7"
-            [valueProperty]="yAxis" legendLabel="Brand" [items]="chartItems">
-        </PieSeries>
-
-        <RadLegendView tkPieLegend position="Bottom" title="" offsetOrigin="TopRight" width="110"
-            enableSelection="true"></RadLegendView>
-    </RadPieChart> -->
-
-<!-- <RadCartesianChart tkExampleTitle tkToggleNavButton>
-
-        <CategoricalAxis height="50%" width="50%" labelFitMode="Rotate" tkCartesianHorizontalAxis>
-        </CategoricalAxis>
-
-        <LinearAxis tkCartesianVerticalAxis horizontalLocation="Right" labelLayoutMode="Outer" labelSize="5px"
-            labelMargin="20" labelTextColor="#536DFE">
-        </LinearAxis>
-
-        <LineSeries tkCartesianSeries [items]="categoricalSource" categoryProperty="Country" valueProperty="Amount">
-        </LineSeries>
-
-    </RadCartesianChart> -->
-<!-- </StackLayout> -->

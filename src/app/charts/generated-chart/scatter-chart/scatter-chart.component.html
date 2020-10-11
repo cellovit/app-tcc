@@ -1,1 +1,13 @@
-<Button text="scatter-chart works!" class="btn btn-primary"></Button>
+<RadCartesianChart *ngIf="chartItems" height="1000" width="100%">
+
+    <LinearAxis tkCartesianVerticalAxis></LinearAxis>
+
+    <CategoricalAxis height="50%" width="50%" labelFitMode="None" labelLayoutMode="Outer" tkCartesianHorizontalAxis>
+    </CategoricalAxis>
+
+    <!-- Scatter -->
+    <ScatterSeries tkCartesianSeries [items]="chartItems" [xProperty]="xAxis" [yProperty]="yAxis"></ScatterSeries>
+
+
+
+</RadCartesianChart>
