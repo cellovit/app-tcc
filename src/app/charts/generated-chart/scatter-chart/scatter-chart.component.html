@@ -1,13 +1,11 @@
-<RadCartesianChart *ngIf="chartItems" height="1000">
+<StackLayout height="100%" width="100%">
+    <RadCartesianChart height="auto" width="auto">
 
-    <LinearAxis tkCartesianVerticalAxis></LinearAxis>
+        <LinearAxis tkCartesianHorizontalAxis></LinearAxis>
+        <LinearAxis tkCartesianVerticalAxis></LinearAxis>
 
-    <CategoricalAxis labelFitMode="None" labelLayoutMode="Outer" tkCartesianHorizontalAxis>
-    </CategoricalAxis>
+        <!-- Scatter -->
+        <ScatterSeries tkCartesianSeries [items]="chartItems" [xProperty]="xAxis" [yProperty]="yAxis"></ScatterSeries>
 
-    <!-- Scatter -->
-    <ScatterSeries tkCartesianSeries [items]="chartItems" [xProperty]="xAxis" [yProperty]="yAxis"></ScatterSeries>
-
-
-
-</RadCartesianChart>
+    </RadCartesianChart>
+</StackLayout>

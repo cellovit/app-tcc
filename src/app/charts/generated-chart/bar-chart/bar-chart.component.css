@@ -1,1 +1,13 @@
 /* Add mobile styles for the component here.  */
+
+ChartAxisLabel {
+    margin: 5;
+    font-size: 10;
+    line-break: auto;
+    line-height: 1rem;
+    word-break: break-all;
+}
+
+Label {
+    word-break: break-all;
+}

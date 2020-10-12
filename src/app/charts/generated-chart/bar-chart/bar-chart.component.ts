@@ -20,7 +20,7 @@ export class BarChartComponent implements OnInit {
   constructor(
     private backendService: BackendQuarkusService,
     private datasetUtils: DatasetUtilsService,
-    private route: ActivatedRoute
+    // private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
@@ -35,7 +35,7 @@ export class BarChartComponent implements OnInit {
       })
         .filter(element => element[this.yAxis] >= 0);
 
-      this.chartItems = this.datasetUtils.groupByPropertyAndSum(parsedResult, this.xAxis, this.yAxis).slice(0, 10);
+      this.chartItems = this.datasetUtils.groupByPropertyAndSum(parsedResult, this.xAxis, this.yAxis).slice(0, 20);
     });
 
   }
