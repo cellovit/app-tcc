@@ -1,8 +1,33 @@
-<ns-action-bar [title]="title"></ns-action-bar>
+<!-- <ns-action-bar [title]="title"></ns-action-bar> -->
+<ScrollView orientation="vertical">
 
-<StackLayout style="margin-top: 50px;" class="stack1" height="1500" width="100%">
+    <!-- <StackLayout id="Content">
+        <Label id="Lfname" text="First name: "></Label>
+        <TextField id="fname" hint="first name"></TextField>
 
-    <ns-bar-chart *ngIf="chartTypes.includes('Bar')" height="1000" [datasetSelecionado]="datasetSelecionado"
-        [exercicioSelecionado]="exercicioSelecionado" [xAxis]="xAxis" [yAxis]="yAxis"></ns-bar-chart>
+        <Label text="Last name: "></Label>
+        <TextField id="lname" hint="last name"></TextField>
 
-</StackLayout>
+        <Label text="E-mail: "></Label>
+        <TextField id="email" hint="email"></TextField>
+
+        <Label text="Confirm E-mail: "></Label>
+        <TextField id="emailConfirm" hint="email"></TextField>
+
+        <Label text="Password: "></Label>
+        <TextField id="password" secure="true"></TextField>
+
+        <Label text="Confirm Password: "></Label>
+        <TextField id="passwordConfirm" secure="true"></TextField>
+
+        <Button id="register" text="Register" class="confirm"></Button>
+        <Button id="login" text="Login" class="link"></Button>
+    </StackLayout> -->
+
+    <GridLayout height="2000" columns="*" rows="500">
+        <StackLayout height="100%" width="100%" row="0" column="0" id="Content">
+            <ns-bar-chart *ngIf="chartTypes.includes('Bar')" [datasetSelecionado]="datasetSelecionado"
+                [exercicioSelecionado]="exercicioSelecionado" [xAxis]="xAxis" [yAxis]="yAxis"></ns-bar-chart>
+        </StackLayout>
+    </GridLayout>
+</ScrollView>

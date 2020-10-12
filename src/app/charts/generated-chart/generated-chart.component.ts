@@ -11,6 +11,7 @@ import { DatasetUtilsService } from '~/app/utils/dataset-utils.service';
 })
 export class GeneratedChartComponent implements OnInit {
 
+  private title = 'Prefeitura Municipal de Recife';
   chartTypes = new Array<ChartType>();
 
   datasetSelecionado = '';
