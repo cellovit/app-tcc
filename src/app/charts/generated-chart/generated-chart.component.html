@@ -2,7 +2,7 @@
 
 <StackLayout style="margin-top: 50px;" class="stack1" height="1500" width="100%">
 
-    <ns-bar-chart [datasetSelecionado]="datasetSelecionado" [exercicioSelecionado]="exercicioSelecionado"
-        [xAxis]="xAxis" [yAxis]="yAxis"></ns-bar-chart>
+    <ns-bar-chart *ngIf="chartTypes.includes('Bar')" height="1000" [datasetSelecionado]="datasetSelecionado"
+        [exercicioSelecionado]="exercicioSelecionado" [xAxis]="xAxis" [yAxis]="yAxis"></ns-bar-chart>
 
 </StackLayout>

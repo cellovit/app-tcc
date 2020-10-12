@@ -11,6 +11,8 @@ import { DatasetUtilsService } from '~/app/utils/dataset-utils.service';
 })
 export class GeneratedChartComponent implements OnInit {
 
+  chartTypes = new Array<ChartType>();
+
   datasetSelecionado = '';
   exercicioSelecionado: number;
 
@@ -35,6 +37,8 @@ export class GeneratedChartComponent implements OnInit {
 
     this.datasetSelecionado = params.datasetSelecionado;
     this.exercicioSelecionado = Number.parseInt(params.exercicioSelecionado);
+    this.chartTypes = params.chartTypes;
+    console.log(this.chartTypes);
     this.xAxis = params.xAxis;
     this.yAxis = params.yAxis;
     this.categoricalDate = params.dateFields.find(x => x === this.xAxis) ? true : false;
@@ -56,7 +60,7 @@ export class GeneratedChartComponent implements OnInit {
 
   resolveChartType(chartTypes: Array<ChartType>) {
 
-
+    // if (this.chartTypes.some(x => x === ChartType.Bar))
 
   }
 
