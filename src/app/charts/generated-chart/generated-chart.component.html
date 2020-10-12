@@ -1,7 +1,28 @@
 <ns-action-bar [title]="title"></ns-action-bar>
-<ScrollView orientation="vertical">
+<ScrollView>
 
-    <StackLayout height="100%" width="100%">
+    <GridLayout height="2000" columns="*" rows="1000, 1000">
+        <StackLayout height="100" width="100%" row="0" col="0">
+            <Label text="teste"></Label>
+            <ns-bar-chart *ngIf="chartTypes.includes('Bar')" [datasetSelecionado]="datasetSelecionado"
+                [exercicioSelecionado]="exercicioSelecionado" [xAxis]="xAxis" [yAxis]="yAxis"></ns-bar-chart>
+
+            <ns-line-chart *ngIf="chartTypes.includes('Line')" [datasetSelecionado]="datasetSelecionado"
+                [exercicioSelecionado]="exercicioSelecionado" [xAxis]="xAxis" [yAxis]="yAxis"></ns-line-chart>
+
+            <ns-pie-chart *ngIf="chartTypes.includes('Pie')" [datasetSelecionado]="datasetSelecionado"
+                [exercicioSelecionado]="exercicioSelecionado" [xAxis]="xAxis" [yAxis]="yAxis"></ns-pie-chart>
+
+            <ns-scatter-chart *ngIf="chartTypes.includes('Scatter')" [datasetSelecionado]="datasetSelecionado"
+                [exercicioSelecionado]="exercicioSelecionado" [xAxis]="xAxis" [yAxis]="yAxis"></ns-scatter-chart>
+
+        </StackLayout>
+        <StackLayout row="1" col="0">
+            <Label text="teste"></Label>
+        </StackLayout>
+    </GridLayout>
+
+    <!-- <StackLayout height="auto" width="100%">
 
         <ns-bar-chart *ngIf="chartTypes.includes('Bar')" [datasetSelecionado]="datasetSelecionado"
             [exercicioSelecionado]="exercicioSelecionado" [xAxis]="xAxis" [yAxis]="yAxis"></ns-bar-chart>
@@ -15,6 +36,6 @@
         <ns-scatter-chart *ngIf="chartTypes.includes('Scatter')" [datasetSelecionado]="datasetSelecionado"
             [exercicioSelecionado]="exercicioSelecionado" [xAxis]="xAxis" [yAxis]="yAxis"></ns-scatter-chart>
 
-    </StackLayout>
+    </StackLayout> -->
 
 </ScrollView>

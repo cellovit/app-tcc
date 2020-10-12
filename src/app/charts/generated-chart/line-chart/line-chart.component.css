@@ -1,1 +1,8 @@
 /* Add mobile styles for the component here.  */
+
+.stack1 {
+    border-color: #5f6368;
+    border-width: 1;
+    border-radius: 15;
+    margin: 20 5;
+}

@@ -1,16 +1,14 @@
-<StackLayout height="100%" width="100%">
-    <RadCartesianChart height="auto" width="auto">
+<RadCartesianChart height="800" width="100%">
 
-        <LinearAxis allowPan="true" allowZoom="true" tkCartesianVerticalAxis></LinearAxis>
+    <LinearAxis allowPan="true" allowZoom="true" tkCartesianVerticalAxis></LinearAxis>
 
-        <CategoricalAxis allowPan="true" allowZoom="true" labelFitMode="Rotate" labelLayoutMode="Outer"
-            tkCartesianHorizontalAxis>
-        </CategoricalAxis>
+    <CategoricalAxis allowPan="true" allowZoom="true" labelFitMode="Rotate" labelLayoutMode="Outer"
+        tkCartesianHorizontalAxis>
+    </CategoricalAxis>
 
-        <!-- Bar -->
-        <BarSeries tkCartesianSeries height="auto" stackMode="Stack" [items]="chartItems" [categoryProperty]="xAxis"
-            [valueProperty]="yAxis">
-        </BarSeries>
+    <!-- Bar -->
+    <BarSeries tkCartesianSeries stackMode="Stack" [items]="chartItems" [categoryProperty]="xAxis"
+        [valueProperty]="yAxis">
+    </BarSeries>
 
-    </RadCartesianChart>
-</StackLayout>
+</RadCartesianChart>

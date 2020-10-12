@@ -1,15 +1,14 @@
-<StackLayout height="100%" width="100%">
-    <RadCartesianChart height="auto" width="auto">
+<RadCartesianChart height="100%" width="100%">
 
-        <LinearAxis tkCartesianVerticalAxis></LinearAxis>
+    <LinearAxis tkCartesianVerticalAxis></LinearAxis>
 
-        <CategoricalAxis labelFitMode="None" labelLayoutMode="Outer" tkCartesianHorizontalAxis>
-        </CategoricalAxis>
+    <DateTimeCategoricalAxis tkCartesianHorizontalAxis labelFitMode="Rotate" dateFormat="yyyy-MM-dd"
+        verticalLocation="Bottom">
+    </DateTimeCategoricalAxis>
 
-        <!-- Line -->
-        <LineSeries tkCartesianSeries [items]="chartItems" legendTitle="" [categoryProperty]="xAxis"
-            [valueProperty]="yAxis">
-        </LineSeries>
+    <!-- Line -->
+    <LineSeries tkCartesianSeries [items]="chartItems" legendTitle="" [categoryProperty]="xAxis"
+        [valueProperty]="yAxis">
+    </LineSeries>
 
-    </RadCartesianChart>
-</StackLayout>
+</RadCartesianChart>
