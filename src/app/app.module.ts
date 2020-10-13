@@ -16,7 +16,6 @@ import { TabExecucaoDespesaComponent } from "./charts/execucao-despesas/tab-exec
 import { LoginComponent } from "./auth/login/login.component";
 import { ActionBarComponent } from "./shared/ui/action-bar/action-bar.component";
 import { ExecucaoDespesasComponent } from "./charts/execucao-despesas/execucao-despesas.component";
-import { LancadoArrecadadoComponent } from "./charts/lancado-arrecadado/lancado-arrecadado.component";
 import { ProgressSpinnerComponent } from "./shared/ui/progress-spinner/progress-spinner.component";
 import { ExecucaoReceitaComponent } from "./charts/execucao-receita/execucao-receita.component";
 import { TabExecucaoReceitaComponent } from "./charts/execucao-receita/tab-execucao-receita/tab-execucao-receita.component";
@@ -58,7 +57,6 @@ import { PieChartComponent } from './charts/generated-chart/pie-chart/pie-chart.
         LoginComponent,
         ActionBarComponent,
         ExecucaoDespesasComponent,
-        LancadoArrecadadoComponent,
         TabExecucaoDespesaComponent,
         ProgressSpinnerComponent,
         ExecucaoReceitaComponent,

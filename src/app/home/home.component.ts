@@ -45,10 +45,10 @@ export class HomeComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        this.exerciciosDisponiveis.push({ value: 0, display: 'Sem exercício' });
-        this.exerciciosDisponiveis.push({ value: 2018, display: '2018' });
-        this.exerciciosDisponiveis.push({ value: 2019, display: '2019' });
-        this.exerciciosDisponiveis.push({ value: 2020, display: '2020' });
+        // this.exerciciosDisponiveis.push({ value: 0, display: 'Sem exercício' });
+        // this.exerciciosDisponiveis.push({ value: 2018, display: '2018' });
+        // this.exerciciosDisponiveis.push({ value: 2019, display: '2019' });
+        // this.exerciciosDisponiveis.push({ value: 2020, display: '2020' });
 
         this.datasetsDisponiveis.push({ value: 'despesas', display: 'Despesas' });
         this.datasetsDisponiveis.push({ value: 'receitas', display: 'Receitas' });
@@ -57,8 +57,19 @@ export class HomeComponent implements OnInit {
     }
 
     public onSelectedDatasetChange(args: SelectedIndexChangedEventData) {
+        this.exerciciosDisponiveis = new ValueList<any>();
         this.datasetSelecionado = this.datasetsDisponiveis.getValue(args.newIndex);
         this.limpaAxis();
+
+        this.backendService.getExerciciosDisponiveisByCategoria(this.datasetSelecionado).subscribe(res => {
+
+            console.log(res);
+
+            res.forEach(exercicio => {
+                this.exerciciosDisponiveis.push({ value: exercicio, display: exercicio.toString() });
+            })
+
+        });
     }
 
     public onSelectedExercicioChange(args: SelectedIndexChangedEventData) {

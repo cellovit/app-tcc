@@ -36,7 +36,7 @@ export class BackendQuarkusService {
   }
 
   // /exerciciosDisponiveis/{categoria}
-  public getExerciciosDisponiveisByCategoria(categoria: string, exercicio: number, xAxis: string, yAxis: string): Observable<Array<number>> {
+  public getExerciciosDisponiveisByCategoria(categoria: string): Observable<Array<number>> {
     return this.httpClient.get<any>(`${this.uri}/datasetResource/exerciciosDisponiveis/${categoria}`);
   }
 }

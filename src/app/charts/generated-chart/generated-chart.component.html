@@ -1,10 +1,13 @@
 <ns-action-bar [title]="title"></ns-action-bar>
-<ScrollView>
+<ScrollView verticalAlignment="center">
     <StackLayout class="stack1">
+
         <ns-bar-chart *ngIf="chartTypes.includes('Bar')" [datasetSelecionado]="datasetSelecionado"
             [exercicioSelecionado]="exercicioSelecionado" [xAxis]="xAxis" [yAxis]="yAxis"></ns-bar-chart>
+
         <ns-pie-chart *ngIf="chartTypes.includes('Pie')" [datasetSelecionado]="datasetSelecionado"
             [exercicioSelecionado]="exercicioSelecionado" [xAxis]="xAxis" [yAxis]="yAxis"></ns-pie-chart>
+
         <ns-line-chart *ngIf="chartTypes.includes('Line')" [datasetSelecionado]="datasetSelecionado"
             [exercicioSelecionado]="exercicioSelecionado" [xAxis]="xAxis" [yAxis]="yAxis"></ns-line-chart>
 
