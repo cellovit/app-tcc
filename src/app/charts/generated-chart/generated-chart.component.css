@@ -5,16 +5,22 @@
     word-wrap: break-word;
     width: 10px;
 } */
-
+/* 
 CategoricalAxis {
     label-text-color: #cb4b16;
     label-size: 100;
     line-thickness: 3;
     word-wrap: break-word;
     word-break: break-all;
-}
+} */
 
-CategoricalAxis Label {
+/* CategoricalAxis Label {
     word-wrap: break-word;
     word-break: break-all;
+} */
+
+.stack1 {
+    margin-top: 0px;
+    height: 700;
+    max-width: 100%;
 }

@@ -9,7 +9,7 @@ import { ChartType } from '../models/ChartType';
 })
 export class BackendQuarkusService {
 
-  uri = `https://backend-quarkus-tcc.herokuapp.com`;
+  uri = `http://backend-quarkus-tcc.herokuapp.com`;
 
   constructor(
     @Inject(HttpClient) public httpClient: HttpClient
