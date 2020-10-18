@@ -79,6 +79,42 @@ export class DatasetUtilsService {
     return new Date(dateValue);
   }
 
+  resolveDateBinning(records: Array<any>, xAxis: string) {
+
+    const majorStepUnit = '';
+    const dateFormat = '';
+
+    let uniqueMonths = new Set();
+    let uniqueYears = new Set();
+
+    records.forEach(element => {
+      const date1 = element[xAxis] as Date;
+      uniqueMonths.add(date1.getMonth());
+      uniqueYears.add(date1.getFullYear());
+    });
+
+    if (uniqueYears.size >= 5) {
+      return {
+        majorStepUnit: 'Year',
+        dateFormat: 'yyyy'
+      }
+    } else {
+      // const monthsArray = Array.from(uniqueMonths.values()).map(x => x as number);
+      // const yearsArray = Array.from(uniqueYears.values()).map(x => x as number);
+
+      const monthMin = Math.min.apply(Math, uniqueMonths.values());
+      const monthMax = Math.max.apply(Math, uniqueMonths.values());
+
+      if (uniqueYears.size >= 1 && monthMin != monthMax) {
+        return {
+          majorStepUnit: 'Month',
+          dateFormat: 'yyyy-MM'
+        }
+      }
+
+    }
+  }
+
   numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' Mi';
   }

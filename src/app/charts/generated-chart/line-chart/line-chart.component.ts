@@ -16,6 +16,9 @@ export class LineChartComponent implements OnInit {
 
   chartItems;
 
+  majorStepUnit = '';
+  dateFormat = '';
+
   constructor(
     private backendService: BackendQuarkusService,
     private datasetUtils: DatasetUtilsService,
@@ -34,8 +37,12 @@ export class LineChartComponent implements OnInit {
         .filter(element => element[this.yAxis] >= 0);
 
       this.chartItems = this.datasetUtils.groupByPropertyAndSum(parsedResult, this.xAxis, this.yAxis);
-      console.log(this.chartItems);
-      
+
+      const binning = this.datasetUtils.resolveDateBinning(this.chartItems, this.xAxis) as any;
+
+      this.majorStepUnit = binning.majorStepUnit;
+      this.dateFormat = binning.dateFormat;
+
     });
   }
 

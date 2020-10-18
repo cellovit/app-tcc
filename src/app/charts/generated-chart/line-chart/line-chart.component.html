@@ -3,8 +3,12 @@
     <LinearAxis tkCartesianVerticalAxis></LinearAxis>
 
     <DateTimeContinuousAxis allowPan="true" allowZoom="true" tkCartesianHorizontalAxis majorStep="1"
-        majorStepUnit="Month" labelFitMode="Rotate" dateFormat="yyyy-MM-dd" verticalLocation="Bottom">
+        [majorStepUnit]="majorStepUnit" labelFitMode="Rotate" [dateFormat]="dateFormat" verticalLocation="Bottom">
     </DateTimeContinuousAxis>
+
+    <!-- <DateTimeContinuousAxis allowPan="true" allowZoom="true" tkCartesianHorizontalAxis majorStep="1"
+        majorStepUnit="Month" labelFitMode="Rotate" dateFormat="yyyy-MM-dd" verticalLocation="Bottom">
+    </DateTimeContinuousAxis> -->
 
     <!-- Line -->
     <LineSeries tkCartesianSeries [items]="chartItems" legendTitle="" [categoryProperty]="xAxis"
