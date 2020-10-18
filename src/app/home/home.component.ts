@@ -45,11 +45,6 @@ export class HomeComponent implements OnInit {
     ) { }
 
     ngOnInit() {
-        // this.exerciciosDisponiveis.push({ value: 0, display: 'Sem exercício' });
-        // this.exerciciosDisponiveis.push({ value: 2018, display: '2018' });
-        // this.exerciciosDisponiveis.push({ value: 2019, display: '2019' });
-        // this.exerciciosDisponiveis.push({ value: 2020, display: '2020' });
-
         this.datasetsDisponiveis.push({ value: 'despesas', display: 'Despesas' });
         this.datasetsDisponiveis.push({ value: 'receitas', display: 'Receitas' });
         this.datasetsDisponiveis.push({ value: 'licitacoes-concluidas', display: 'Licitações Concluídas' });
@@ -66,7 +61,12 @@ export class HomeComponent implements OnInit {
             console.log(res);
 
             res.forEach(exercicio => {
-                this.exerciciosDisponiveis.push({ value: exercicio, display: exercicio.toString() });
+                if (exercicio === 0) {
+                    this.exerciciosDisponiveis.push({ value: exercicio, display: 'Sem Exercício' });
+                } else {
+                    this.exerciciosDisponiveis.push({ value: exercicio, display: exercicio.toString() });
+                }
+
             })
 
         });

@@ -75,6 +75,10 @@ export class DatasetUtilsService {
     return Number(parsed.toFixed(0));
   }
 
+  parseDateValue(dateValue: string) {
+    return new Date(dateValue);
+  }
+
   numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' Mi';
   }

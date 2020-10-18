@@ -24,16 +24,12 @@ export class GeneratedChartComponent implements OnInit {
   categoricalDate = false;
 
   constructor(
-    private backendService: BackendQuarkusService,
-    private datasetUtils: DatasetUtilsService,
     private route: ActivatedRoute
   ) {
 
   }
 
   ngOnInit() {
-    // console.log(this.route.snapshot.queryParams);
-
     const params = this.route.snapshot.queryParams;
 
     this.datasetSelecionado = params.datasetSelecionado;
@@ -43,26 +39,7 @@ export class GeneratedChartComponent implements OnInit {
     this.xAxis = params.xAxis;
     this.yAxis = params.yAxis;
     this.categoricalDate = params.dateFields.find(x => x === this.xAxis) ? true : false;
-    // console.log(this.categoricalDate);
-
-    this.backendService.getDatasetRecordsWithAxes(this.datasetSelecionado, this.exercicioSelecionado, this.xAxis, this.yAxis).subscribe(records => {
-
-      const parsedResult = records.map(element => {
-
-        element[this.yAxis] = this.datasetUtils.parseDatasetStringValue(element[this.yAxis]);
-
-        return element;
-      })
-        .filter(element => element[this.yAxis] >= 0);
-
-      this.chartItems = this.datasetUtils.groupByPropertyAndSum(parsedResult, this.xAxis, this.yAxis).slice(0, 10);
-    });
-  }
-
-  resolveChartType(chartTypes: Array<ChartType>) {
-
-    // if (this.chartTypes.some(x => x === ChartType.Bar))
-
+    
   }
 
 }

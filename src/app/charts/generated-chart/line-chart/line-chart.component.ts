@@ -26,13 +26,16 @@ export class LineChartComponent implements OnInit {
 
       const parsedResult = records.map(element => {
 
+        element[this.xAxis] = this.datasetUtils.parseDateValue(element[this.xAxis]);
         element[this.yAxis] = this.datasetUtils.parseDatasetStringValue(element[this.yAxis]);
 
         return element;
       })
         .filter(element => element[this.yAxis] >= 0);
 
-      this.chartItems = this.datasetUtils.groupByPropertyAndSum(parsedResult, this.xAxis, this.yAxis).slice(0, 20);
+      this.chartItems = this.datasetUtils.groupByPropertyAndSum(parsedResult, this.xAxis, this.yAxis);
+      console.log(this.chartItems);
+      
     });
   }
 
