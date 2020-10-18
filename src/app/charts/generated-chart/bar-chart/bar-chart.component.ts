@@ -35,7 +35,7 @@ export class BarChartComponent implements OnInit {
       })
         .filter(element => element[this.yAxis] >= 0);
 
-      this.chartItems = this.datasetUtils.groupByPropertyAndSum(parsedResult, this.xAxis, this.yAxis).slice(0, 20);
+      this.chartItems = this.datasetUtils.groupByPropertyAndSum(parsedResult, this.xAxis, this.yAxis);
     });
 
   }

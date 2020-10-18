@@ -1,5 +1,5 @@
 <ns-action-bar [title]="title"></ns-action-bar>
-<!-- <ScrollView verticalAlignment="center"> -->
+<!-- <ScrollView> -->
     <StackLayout class="stack1">
 
         <ns-bar-chart *ngIf="chartTypes.includes('Bar')" [datasetSelecionado]="datasetSelecionado"
@@ -13,6 +13,6 @@
 
         <ns-scatter-chart *ngIf="chartTypes.includes('Scatter')" [datasetSelecionado]="datasetSelecionado"
             [exercicioSelecionado]="exercicioSelecionado" [xAxis]="xAxis" [yAxis]="yAxis"></ns-scatter-chart>
-    </StackLayout>
 
+    </StackLayout>
 <!-- </ScrollView> -->

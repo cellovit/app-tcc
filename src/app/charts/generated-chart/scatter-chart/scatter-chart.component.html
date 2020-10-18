@@ -1,7 +1,7 @@
 <RadCartesianChart height="100%" width="100%">
 
-    <LinearAxis tkCartesianHorizontalAxis></LinearAxis>
-    <LinearAxis tkCartesianVerticalAxis></LinearAxis>
+    <LinearAxis allowPan="true" allowZoom="true" tkCartesianHorizontalAxis></LinearAxis>
+    <LinearAxis allowPan="true" allowZoom="true" tkCartesianVerticalAxis></LinearAxis>
 
     <!-- Scatter -->
     <ScatterSeries tkCartesianSeries [items]="chartItems" [xProperty]="xAxis" [yProperty]="yAxis"></ScatterSeries>

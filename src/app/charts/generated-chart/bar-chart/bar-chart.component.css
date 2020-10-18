@@ -1,12 +1,11 @@
 /* Add mobile styles for the component here.  */
 
-/* ChartAxisLabel {
-    margin: 5;
-    font-size: 10;
-    line-break: auto;
-    line-height: 1rem;
+ChartAxisLabel {
+    /* margin: 5; */
+    font-size: 8;
+    line-break: normal;
     word-break: break-all;
-} */
+}
 
 /* Label {
     word-break: break-all;

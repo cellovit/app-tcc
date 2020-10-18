@@ -1,14 +1,13 @@
-<RadCartesianChart>
+<RadCartesianChart height="auto" width="auto">
 
-    <LinearAxis tkCartesianVerticalAxis></LinearAxis>
+    <LinearAxis allowPan="true" allowZoom="true" tkCartesianVerticalAxis></LinearAxis>
 
-    <CategoricalAxis labelFitMode="Rotate" labelLayoutMode="Outer"
+    <CategoricalAxis allowPan="true" allowZoom="true" labelFitMode="Rotate" labelLayoutMode="Outer"
         tkCartesianHorizontalAxis>
     </CategoricalAxis>
 
     <!-- Bar -->
-    <BarSeries tkCartesianSeries [items]="chartItems" [categoryProperty]="xAxis"
-        [valueProperty]="yAxis">
+    <BarSeries tkCartesianSeries [items]="chartItems" [categoryProperty]="xAxis" [valueProperty]="yAxis">
     </BarSeries>
 
 </RadCartesianChart>
